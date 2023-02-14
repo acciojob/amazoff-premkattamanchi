@@ -4,6 +4,7 @@ public class Order {
 
     private String id;
     private int deliveryTime;
+    private boolean isAssigned=false;
 
     public Order(String id, String deliveryTime) {
 
@@ -13,6 +14,17 @@ public class Order {
         int mins=Integer.parseInt(deliveryTime.substring(2));
         this.id=id;
         this.deliveryTime=hours*60+mins;
+    }
+
+    public Order() {
+    }
+
+    public boolean isAssigned() {
+        return isAssigned;
+    }
+
+    public void setAssigned(boolean assigned) {
+        isAssigned = assigned;
     }
 
     public String getId() {
