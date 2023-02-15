@@ -25,7 +25,7 @@ public class OrderRepository {
         return "order not added";
     }
     public String addPartner(String partnerId){
-        if(!partnerMap.containsKey(partnerId)) {
+        if(!partnerMap.containsKey(partnerId) && !partnerId.equals("null") && !partnerId.equals(" ")) {
             partnerMap.put(partnerId,new DeliveryPartner(partnerId));
             return "new Partner added";
         }
