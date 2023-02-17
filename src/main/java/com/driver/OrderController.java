@@ -18,8 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("orders")
 public class OrderController {
-    @Autowired
-    OrderService orderService;
+    OrderService orderService = new OrderService();;
 
     @PostMapping("/add-order")
     public ResponseEntity<String> addOrder(@RequestBody Order order) {
@@ -82,7 +81,7 @@ public class OrderController {
         return new ResponseEntity<>(countOfOrders, HttpStatus.CREATED);
     }
 
-    @GetMapping("/get-count-of-orders-left-after-given-time/{partnerId}")
+    @GetMapping("/get-count-of-orders-left-after-given-time/{time}/{partnerId}")
     public ResponseEntity<Integer> getOrdersLeftAfterGivenTimeByPartnerId(@PathVariable String time,
                                                                           @PathVariable String partnerId) {
         // countOfOrders that are left after a particular time of a DeliveryPartner
