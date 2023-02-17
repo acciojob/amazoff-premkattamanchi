@@ -25,7 +25,7 @@ public class OrderRepository {
         return "order not added";
     }
     public String addPartner(String partnerId){
-        if(!partnerMap.containsKey(partnerId) && !partnerId.equals("null") && !partnerId.equals(" ")) {
+        if(!partnerMap.containsKey(partnerId)) {
             partnerMap.put(partnerId,new DeliveryPartner(partnerId));
             return "new Partner added";
         }
@@ -106,7 +106,7 @@ public class OrderRepository {
             mins="0"+mins;
         return hours+":"+mins;
     }
-    public String deletePartnerById(String partnerId){
+    public String deletePartnerById(String partnerId) throws Exception{
         if(partnerMap.containsKey(partnerId))
               partnerMap.remove(partnerId);
        if(pairMap.containsKey(partnerId)){

@@ -120,7 +120,7 @@ public class OrderController {
     }
 
     @DeleteMapping("/delete-partner-by-id/{partnerId}")
-    public ResponseEntity<String> deletePartnerById(@PathVariable String partnerId){
+    public ResponseEntity<String> deletePartnerById(@PathVariable String partnerId)throws Exception{
 
         //Delete the partnerId
         //And push all his assigned orders to unassigned orders.
