@@ -81,13 +81,15 @@ public class OrderRepository {
     }
     public int getOrdersLeftAfterGivenTimeByPartnerId(String time,String partnerId){
         int hours=Integer.parseInt(time.substring(0,2));
-        int mins=Integer.parseInt(time.substring(2));
+        int mins=Integer.parseInt(time.substring(3));
         int totalTime=hours*60+mins;
         int count=0;
-       for(String s:pairMap.get(partnerId)){
-           if(orderMap.get(s).getDeliveryTime()>totalTime)
-               count++;
-       }
+        if(pairMap.containsKey(partnerId)){
+            for(String s:pairMap.get(partnerId)){
+                if(orderMap.get(s).getDeliveryTime()>totalTime)
+                    count++;
+            }
+        }
        return count;
     }
     public String getLastDeliveryTimeByPartnerId(String partnerId){
