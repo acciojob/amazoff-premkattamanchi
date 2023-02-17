@@ -106,7 +106,7 @@ public class OrderRepository {
             mins="0"+mins;
         return hours+":"+mins;
     }
-    public String deletePartnerById(String partnerId) throws Exception{
+    public String deletePartnerById(String partnerId){
         if(partnerMap.containsKey(partnerId))
               partnerMap.remove(partnerId);
        if(pairMap.containsKey(partnerId)){

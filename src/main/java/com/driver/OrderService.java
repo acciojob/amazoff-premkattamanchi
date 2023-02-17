@@ -42,7 +42,7 @@ public class OrderService {
     public String getLastDeliveryTimeByPartnerId(String partnerId){
        return orderRepository.getLastDeliveryTimeByPartnerId(partnerId);
     }
-    public String deletePartnerById(String partnerId) throws Exception{
+    public String deletePartnerById(String partnerId){
         return orderRepository.deletePartnerById(partnerId);
     }
     public void deleteOrderById(String orderId){
